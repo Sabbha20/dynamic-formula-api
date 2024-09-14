@@ -1,0 +1,37 @@
+# VS Code
+.vscode/
+.vscode-server/
+
+# PyCharm
+.idea/
+.idea/.name
+.idea/.project
+.idea/.workspace.xml
+.idea/data/.gitignore
+.idea/data/shelf
+
+# Virtual Environments
+venv/
+env/
+.venv/
+
+# Python-specific
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# NumPy
+.npy
+.npz
+
+# Flask
+.flaskenv
+.flask_env
+
+# Flask-RESTful
+.restful_env
+
+# Other
+*.swp
+*~
