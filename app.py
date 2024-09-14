@@ -1,30 +1,26 @@
 from flask import Flask, request, jsonify
-from flask_restful import Api, Resource
-
-import numpy as np
+import json
 import re
-from dateutil import parser
 
 app = Flask(__name__)
-api = Api(app)
 
-class ExecuteFormula(Resource):
-    def post(self):
-        data = request.get_json()
-        
-        # Extract and validate data and formulas
-        try:
-            pass
-        except Exception as e:
-            return {'error': str(e)}, 400
-    
-    def execute_formulas(self, data):
-        # Placeholder for formula execution logic
-        results = {}
-        return results
-    
-    
-api.add_resource(ExecuteFormula, '/api/execute-formula')
+# fetch formula and data
+def parse_payload(data):
+    dataset = data.get('data', [])
+    formulas = data.get('formulas', [])
+    return dataset, formulas
+
+@app.route('/api/execute-formula', methods=['POST'])
+def execute_formula():
+    try:
+        data = request.json
+        # Logic is here
+        dataset, formulas = parse_payload(data)
+        # print(f"dataset - {dataset}")
+        # print(f"formulas - {formulas}")
+        return jsonify({"results": {}, "status": "success", "message": "Not implemented yet"})
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
